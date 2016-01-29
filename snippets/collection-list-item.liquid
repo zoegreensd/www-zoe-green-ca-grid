@@ -1,4 +1,4 @@
-<article class="collection">
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}<article class="collection">
 
   {% if collection-list-item == 'linklist' %}
     {% assign link_handle = link.handle %}
@@ -10,18 +10,18 @@
       {% if collection.image %}
         <img alt="{{ collection.image.alt | escape }}" src="{{ collection | img_url: 'grande' }}">
       {% else %}
-        <img alt="{{ collection.title | escape }}" src="{{ collection.products.first | img_url: 'grande' }}">
+        <img alt="{% comment %}ly_code_replace_for_[ collection.title | escape ]_begin{% endcomment %}{% include 'ly-title' with collection %}{% assign 30d851b75c66bdb620c70f678e3ad7ee = ly_translation %}{{ 30d851b75c66bdb620c70f678e3ad7ee | escape }}{% comment %}ly_code_replace_end{% endcomment %}" src="{{ collection.products.first | img_url: 'grande' }}">
       {% endif %}
     </a>
   </figure>
 
   <h2 class="collection-title">
-    <a href="{{ collection.url }}">{{ collection.title }}</a>
+    <a href="{{ collection.url }}">{% comment %}ly_code_replace_for_[ collection.title ]_begin{% endcomment %}{% include 'ly-title' with collection %}{% assign 30d851b75c66bdb620c70f678e3ad7ee = ly_translation %}{{ 30d851b75c66bdb620c70f678e3ad7ee }}{% comment %}ly_code_replace_end{% endcomment %}</a>
   </h2>
 
   {% if settings.collections-show-description and collection.description != blank %}
     <div class="collection-description rte">
-      {{ collection.description | strip_html }}
+      {% comment %}ly_code_replace_for_[ collection.description | strip_html ]_begin{% endcomment %}{% include 'ly-description' with collection %}{% assign 9d1b16d56a4e4371f62c4d23bd510781 = ly_translation %}{{ 9d1b16d56a4e4371f62c4d23bd510781 | strip_html }}{% comment %}ly_code_replace_end{% endcomment %}
     </div>
   {% endif %}
 

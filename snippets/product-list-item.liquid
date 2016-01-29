@@ -1,4 +1,4 @@
-{% assign item = product %}
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% assign item = product %}
 {% if template contains 'search' %}
   {% assign item = item %}
 {% elsif template contains 'product' %}
@@ -37,7 +37,7 @@
     </a>
 
     {% if settings.product-hover == 'quick-shop' %}
-      <span class="quick-shop-modal-trigger">{{ 'products.product.quick_shop_trigger_text' | t }}</span>
+      <span class="quick-shop-modal-trigger">{% comment %}ly_i18n_replace_for_[ 'products.product.quick_shop_trigger_text' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'products.product.quick_shop_trigger_text' | t }}{% endcapture %}{% include 'ly-static-string' with '1294315' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</span>
 
     {% elsif settings.product-hover == 'stock-level' %}
 
@@ -60,10 +60,10 @@
     {% if settings.product-vendor %}
       <p class="product-list-item-vendor">{{ item.vendor | link_to_vendor }}</p>
     {% endif %}
-    <h2 class="product-list-item-title"><a href="{{ item.url | within: collection }}">{{ item.title }}</a></h2>
+    <h2 class="product-list-item-title"><a href="{{ item.url | within: collection }}">{% comment %}ly_code_replace_for_[ item.title ]_begin{% endcomment %}{% include 'ly-title' with item %}{% assign 3607ac381e8d0353236d89b80211e18f = ly_translation %}{{ 3607ac381e8d0353236d89b80211e18f }}{% comment %}ly_code_replace_end{% endcomment %}</a></h2>
     <p class="product-list-item-price">
       {% if item.price_varies and scn_price_varies %}
-        {% if item.price_varies %}{{ 'products.product.from' | t }}{% endif %}
+        {% if item.price_varies %}{% comment %}ly_i18n_replace_for_[ 'products.product.from' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'products.product.from' | t }}{% endcapture %}{% include 'ly-static-string' with '1294316' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}{% endif %}
         <span class="money">
           {% comment %}{{ item.price_min | money }}{% endcomment %}
           {% include 'scn-min-price' with item %}

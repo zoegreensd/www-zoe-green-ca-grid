@@ -1,21 +1,21 @@
-{% if link.url contains 'facebook' %}
-  social-icon facebook
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% if link.url contains 'facebook' %}
+  <ly-as-1294333>social-icon facebook</ly-as-1294333>
 {% elsif link.url contains 'twitter' %}
-  social-icon twitter
+  <ly-as-1294334>social-icon twitter</ly-as-1294334>
 {% elsif link.url contains 'pinterest' %}
-  social-icon pinterest
+  <ly-as-1294335>social-icon pinterest</ly-as-1294335>
 {% elsif link.url contains 'instagram' %}
-  social-icon instagram
+  <ly-as-1294336>social-icon instagram</ly-as-1294336>
 {% elsif link.url contains 'google' %}
-  social-icon google-plus
+  <ly-as-1294337>social-icon google-plus</ly-as-1294337>
 {% elsif link.url contains 'kickstarter' %}
-  social-icon kickstarter
+  <ly-as-1294338>social-icon kickstarter</ly-as-1294338>
 {% elsif link.url contains 'vimeo' %}
-  social-icon vimeo
+  <ly-as-1294339>social-icon vimeo</ly-as-1294339>
 {% elsif link.url contains 'youtube' %}
-  social-icon youtube
+  <ly-as-1294340>social-icon youtube</ly-as-1294340>
 {% elsif link.url contains 'rss' or link.url contains '.atom' or link.url contains 'feed' or link.url contains '.xml' %}
-  social-icon rss
+  <ly-as-1294341>social-icon rss</ly-as-1294341>
 {% elsif link.url contains 'tumblr' %}
-  social-icon tumblr
+  <ly-as-1294342>social-icon tumblr</ly-as-1294342>
 {% endif %}

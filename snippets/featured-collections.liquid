@@ -1,4 +1,4 @@
-{% assign collectionCount = 0 %}
+{% comment %}ly_settings_replace_for_[8e8b721c5219f0f9a68d82c578640fe7=settings.featured-collections-section-title]_begin{% endcomment %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% assign namespace = language | append: "as" %}{% if shop.metafields[namespace]["id1294264"] %}{% assign 8e8b721c5219f0f9a68d82c578640fe7 = shop.metafields[namespace]["id1294264"] %}{% else %}{% assign 8e8b721c5219f0f9a68d82c578640fe7 = settings.featured-collections-section-title %}{% endif %}{% comment %}ly_settings_replace_end{% endcomment %}{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% assign collectionCount = 0 %}
 {% assign featuredCollections = 'featured-collection-1|featured-collection-2|featured-collection-3' | split: "|" %}
 
 {% for collection in featuredCollections %}
@@ -13,7 +13,7 @@
   <section class="featured-collections row-of-{{ collectionCount }}">
 
     {% if settings.featured-collections-section-title != blank %}
-      <h2 class="section-title">{{ settings.featured-collections-section-title }}</h2>
+      <h2 class="section-title">{{ 8e8b721c5219f0f9a68d82c578640fe7 }}</h2>
     {% endif %}
 
     <div class="featured-collections-list">
@@ -40,13 +40,13 @@
               {% if featuredCollection.image %}
                 <img alt="{{ featuredCollection.image.alt | escape }}" src="{{ featuredCollection | img_url: '1024x1024' }}">
               {% else %}
-                <img alt="{{ featuredCollection.title | escape }}" src="{{ featuredCollection.products.first | img_url: '1024x1024' }}">
+                <img alt="{% comment %}ly_code_replace_for_[ featuredCollection.title | escape ]_begin{% endcomment %}{% include 'ly-title' with featuredCollection %}{% assign 47e22d51deada2ec94cd45ee294db141 = ly_translation %}{{ 47e22d51deada2ec94cd45ee294db141 | escape }}{% comment %}ly_code_replace_end{% endcomment %}" src="{{ featuredCollection.products.first | img_url: '1024x1024' }}">
               {% endif %}
 
               <div class="featured-collection-overlay-wrapper color-{{ settings[overlayColor] }}" data-url="{{ featuredCollection.url }}">
                 <div class="featured-collection-overlay">
                   <h3 class="featured-collection-title">
-                    <a href="{{ featuredCollection.url }}">{{ featuredCollection.title }}</a>
+                    <a href="{{ featuredCollection.url }}">{% comment %}ly_code_replace_for_[ featuredCollection.title ]_begin{% endcomment %}{% include 'ly-title' with featuredCollection %}{% assign 47e22d51deada2ec94cd45ee294db141 = ly_translation %}{{ 47e22d51deada2ec94cd45ee294db141 }}{% comment %}ly_code_replace_end{% endcomment %}</a>
                   </h3>
                   {% if settings[subtitle] != blank %}
                     <span class="featured-collection-subtitle">
@@ -77,7 +77,7 @@
 {% else %}
 
   <section class="featured-collections onboarding">
-    <h2 class="section-title">{{ 'onboarding.featured_collections.title' | t }}</h2>
+    <h2 class="section-title">{% comment %}ly_i18n_replace_for_[ 'onboarding.featured_collections.title' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.featured_collections.title' | t }}{% endcapture %}{% include 'ly-static-string' with '1294265' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</h2>
 
     <div class="featured-collections-list row-of-3">
 
@@ -89,11 +89,11 @@
 
             <div class="featured-collection-overlay color-black">
               <h3 class="featured-collection-title">
-                <a href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings">{{ 'onboarding.featured_collections.collection_title' | t: number: i }}</a>
+                <a href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings">{% comment %}ly_i18n_replace_for_[ 'onboarding.featured_collections.collection_title' | t: number: i ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.featured_collections.collection_title' | t: number: i }}{% endcapture %}{% include 'ly-static-string' with '1294267' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = i  %}{% assign ly_template = ly_template | replace: '[[number]]', replacement %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</a>
               </h3>
               <span class="featured-collection-subtitle">
                 <a href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings">
-                  {{ 'onboarding.general.settings_page_link' | t }}
+                  {% comment %}ly_i18n_replace_for_[ 'onboarding.general.settings_page_link' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.general.settings_page_link' | t }}{% endcapture %}{% include 'ly-static-string' with '1294268' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}
                 </a>
               </span>
             </div>
@@ -101,7 +101,7 @@
           </figure>
 
           <div class="featured-collection-description">
-            {{ 'onboarding.featured_collections.subtitle' | t }}
+            {% comment %}ly_i18n_replace_for_[ 'onboarding.featured_collections.subtitle' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.featured_collections.subtitle' | t }}{% endcapture %}{% include 'ly-static-string' with '1294269' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}
           </div>
 
         </article>

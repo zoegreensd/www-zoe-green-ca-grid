@@ -1,4 +1,4 @@
-{% assign scn_product_min = scn-product-price.price_max %}
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% assign scn_product_min = scn-product-price.price_max %}
 {% assign scn_variant_size = 0 %}
 
 {% for variant in scn-product-price.variants %}

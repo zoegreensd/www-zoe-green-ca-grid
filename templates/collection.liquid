@@ -1,4 +1,4 @@
-<h1 class="page-title">{{ collection.title }}</h1>
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}<h1 class="page-title">{% comment %}ly_code_replace_for_[ collection.title ]_begin{% endcomment %}{% include 'ly-title' with collection %}{% assign 30d851b75c66bdb620c70f678e3ad7ee = ly_translation %}{{ 30d851b75c66bdb620c70f678e3ad7ee }}{% comment %}ly_code_replace_end{% endcomment %}</h1>
 
 {% include 'breadcrumbs' %}
 
@@ -20,7 +20,7 @@
 
       {% if collection.description != blank and settings.collection-show-description %}
         <div class="collection-description rte">
-          {{ collection.description }}
+          {% comment %}ly_code_replace_for_[ collection.description ]_begin{% endcomment %}{% include 'ly-description' with collection %}{% assign 9d1b16d56a4e4371f62c4d23bd510781 = ly_translation %}{{ 9d1b16d56a4e4371f62c4d23bd510781 }}{% comment %}ly_code_replace_end{% endcomment %}
         </div>
       {% endif %}
 
@@ -40,7 +40,7 @@
             <div class="collection-sorting {% if collection.current_vendor %}vendor-collection{% endif %} select-wrapper">
 
               {% assign sortHandles = "manual|best-selling|price-ascending|price-descending|title-descending|title-ascending|created-ascending|created-descending" | split: "|" %}
-              {% capture sortTitles %}{{ 'collections.collection_sorting.manual' | t }}|{{ 'collections.collection_sorting.best_selling' | t }}|{{ 'collections.collection_sorting.price_ascending' | t }}|{{ 'collections.collection_sorting.price_descending' | t }}|{{ 'collections.collection_sorting.title_descending' | t }}|{{ 'collections.collection_sorting.title_ascending' | t }}|{{ 'collections.collection_sorting.created_ascending' | t }}|{{ 'collections.collection_sorting.created_descending' | t }}{% endcapture %}
+              {% capture sortTitles %}{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.manual' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.manual' | t }}{% endcapture %}{% include 'ly-static-string' with '1294384' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}|{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.best_selling' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.best_selling' | t }}{% endcapture %}{% include 'ly-static-string' with '1294385' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}|{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.price_ascending' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.price_ascending' | t }}{% endcapture %}{% include 'ly-static-string' with '1294386' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}|{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.price_descending' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.price_descending' | t }}{% endcapture %}{% include 'ly-static-string' with '1294387' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}|{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.title_descending' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.title_descending' | t }}{% endcapture %}{% include 'ly-static-string' with '1294388' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}|{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.title_ascending' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.title_ascending' | t }}{% endcapture %}{% include 'ly-static-string' with '1294389' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}|{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.created_ascending' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.created_ascending' | t }}{% endcapture %}{% include 'ly-static-string' with '1294390' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}|{% comment %}ly_i18n_replace_for_[ 'collections.collection_sorting.created_descending' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection_sorting.created_descending' | t }}{% endcapture %}{% include 'ly-static-string' with '1294391' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}{% endcapture %}
               {% assign sortTitles = sortTitles | split: "|" %}
 
               {% for handle in sortHandles %}
@@ -70,7 +70,7 @@
             <div class="collection-tags-wrapper select-wrapper">
               <span class="selected-text"></span>
               <select class="collection-tags" data-url="{{ collection.handle }}">
-                <option value="all">{{ 'collections.collection.all_tags' | t }}</option>
+                <option value="all">{% comment %}ly_i18n_replace_for_[ 'collections.collection.all_tags' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection.all_tags' | t }}{% endcapture %}{% include 'ly-static-string' with '1294392' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</option>
                 {% for tag in collection.all_tags %}
                   {% if current_tags contains tag %}
                     <option value="{{ tag | handle }}" selected="selected">{{ tag }}</option>
@@ -94,7 +94,7 @@
     {% for product in collection.products %}
       {% include 'product-list-item' %}
     {% else %}
-      <p class="empty">{{ 'collections.collection.empty' | t }}</p>
+      <p class="empty">{% comment %}ly_i18n_replace_for_[ 'collections.collection.empty' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'collections.collection.empty' | t }}{% endcapture %}{% include 'ly-static-string' with '1294393' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</p>
     {% endfor %}
   </div>
   

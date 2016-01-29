@@ -1,12 +1,12 @@
-{% if settings.instagram-widget-access-token != blank %}
+{% comment %}ly_settings_replace_for_[ae2a61dbdd060ea6cfb07fb3f385c5e8=settings.instagram-username]_begin{% endcomment %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% assign namespace = language | append: "as" %}{% if shop.metafields[namespace]["id1294297"] %}{% assign ae2a61dbdd060ea6cfb07fb3f385c5e8 = shop.metafields[namespace]["id1294297"] %}{% else %}{% assign ae2a61dbdd060ea6cfb07fb3f385c5e8 = settings.instagram-username %}{% endif %}{% comment %}ly_settings_replace_end{% endcomment %}{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% if settings.instagram-widget-access-token != blank %}
 
   <div class="instagram-widget">
     <div class="instagram-photos"></div>
     {% if settings.instagram-username != blank %}
       {% capture instagramLink %}
-        <a href="http://instagram.com/{{ settings.instagram-username }}">@{{ settings.instagram-username }}</a>
+        <a href="http://instagram.com/{{ settings.instagram-username }}">@{{ ae2a61dbdd060ea6cfb07fb3f385c5e8 }}</a>
       {% endcapture %}
-      <div class="instagram-follow">{{ 'general.social.follow_on_instagram_html' | t: instagram_link: instagramLink }}</div>
+      <div class="instagram-follow">{% comment %}ly_i18n_replace_for_[ 'general.social.follow_on_instagram_html' | t: instagram_link: instagramLink ]_begin{% endcomment %}{% capture ly_template %}{{ 'general.social.follow_on_instagram_html' | t: instagram_link: instagramLink }}{% endcapture %}{% include 'ly-static-string' with '1294300' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = instagramLink  %}{% assign ly_template = ly_template | replace: '[[instagram_link]]', replacement %}{% if escape_content %}{{ ly_template}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</div>
     {% endif %}
   </div>
 
@@ -21,9 +21,9 @@
       {% endfor %}
     </div>
     {% capture instagramLink %}
-      <a href="http://instagram.com/pixelunion">@pixelunion</a>
+      <a href="http://instagram.com/pixelunion"><ly-as-1294298>@pixelunion</ly-as-1294298></a>
     {% endcapture %}
-    <div class="instagram-follow">{{ 'general.social.follow_on_instagram_html' | t: instagram_link: instagramLink }}</div>
+    <div class="instagram-follow">{% comment %}ly_i18n_replace_for_[ 'general.social.follow_on_instagram_html' | t: instagram_link: instagramLink ]_begin{% endcomment %}{% capture ly_template %}{{ 'general.social.follow_on_instagram_html' | t: instagram_link: instagramLink }}{% endcapture %}{% include 'ly-static-string' with '1294300' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = instagramLink  %}{% assign ly_template = ly_template | replace: '[[instagram_link]]', replacement %}{% if escape_content %}{{ ly_template}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</div>
   </div>
 
 {% endif %}

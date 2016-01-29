@@ -1,4 +1,4 @@
-{% if settings.twitter-widget-id != blank %}
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% if settings.twitter-widget-id != blank %}
 
   <div class="twitter-widget {% if settings.instagram-widget %}has-instagram{% endif %}">
     <div class="twitter-tweet-wrapper">
@@ -9,7 +9,7 @@
       {% capture twitterLink %}
         <a href="http://twitter.com/{{ settings.twitter-username }}">@{{ settings.twitter-username }}</a>
       {% endcapture %}
-      <div class="twitter-follow">{{ 'general.social.follow_on_twitter_html' | t: twitter_link: twitterLink }}</div>
+      <div class="twitter-follow">{% comment %}ly_i18n_replace_for_[ 'general.social.follow_on_twitter_html' | t: twitter_link: twitterLink ]_begin{% endcomment %}{% capture ly_template %}{{ 'general.social.follow_on_twitter_html' | t: twitter_link: twitterLink }}{% endcapture %}{% include 'ly-static-string' with '1294345' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = twitterLink  %}{% assign ly_template = ly_template | replace: '[[twitter_link]]', replacement %}{% if escape_content %}{{ ly_template}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</div>
     {% endif %}
   </div>
 
@@ -17,13 +17,13 @@
 
   <div class="twitter-widget onboarding">
     {% capture settingsPageLink %}
-      <a href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings">{{ 'onboarding.general.settings_page_link' | t | downcase }}</a>
+      <a href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings">{% comment %}ly_i18n_replace_for_[ 'onboarding.general.settings_page_link' | t | downcase ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.general.settings_page_link' | t | downcase }}{% endcapture %}{% include 'ly-static-string' with '1294346' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | downcase }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</a>
     {% endcapture %}
-    <div class="twitter-tweet">{{ 'onboarding.twitter_widget.subtitle_html' | t: settings_page_link: settingsPageLink }}</div>
+    <div class="twitter-tweet">{% comment %}ly_i18n_replace_for_[ 'onboarding.twitter_widget.subtitle_html' | t: settings_page_link: settingsPageLink ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.twitter_widget.subtitle_html' | t: settings_page_link: settingsPageLink }}{% endcapture %}{% include 'ly-static-string' with '1294348' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = settingsPageLink  %}{% assign ly_template = ly_template | replace: '[[settings_page_link]]', replacement %}{% if escape_content %}{{ ly_template}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</div>
     {% capture twitterLink %}
-      <a href="http://twitter.com/pixelunion">@pixelunion</a>
+      <a href="http://twitter.com/pixelunion"><ly-as-1294343>@pixelunion</ly-as-1294343></a>
     {% endcapture %}
-    <div class="twitter-follow">{{ 'general.social.follow_on_twitter_html' | t: twitter_link: twitterLink }}</div>
+    <div class="twitter-follow">{% comment %}ly_i18n_replace_for_[ 'general.social.follow_on_twitter_html' | t: twitter_link: twitterLink ]_begin{% endcomment %}{% capture ly_template %}{{ 'general.social.follow_on_twitter_html' | t: twitter_link: twitterLink }}{% endcapture %}{% include 'ly-static-string' with '1294345' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = twitterLink  %}{% assign ly_template = ly_template | replace: '[[twitter_link]]', replacement %}{% if escape_content %}{{ ly_template}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</div>
   </div>
 
 {% endif %}
