@@ -4,20 +4,16 @@
   <div class="header-tools-wrapper">
     <div class="header-tools">
 
-      <div class="aligned-left">
-        
-        
-       
-        <p class="navigation-toggle"><span class="navigation-toggle-icon"><ly-as-1294286>Open menu</ly-as-1294286></span> <span class="navigation-toggle-text">{% comment %}ly_i18n_replace_for_[ 'layout.header.menu' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.menu' | t }}{% endcapture %}{% include 'ly-static-string' with '1294287' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</span></p>
+      <div class="aligned-left" style="height: 100%; float:left; vertical-align:middle;">
 
-         <div class="fb-like" data-href="http://www.zoe-green.ca/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+       
+         <div style="padding: 5px; height: 100%; float:left; vertical-align:middle;">
+        	{% include 'ly-languages-switcher' %}
+		  </div>
         
-        {% include 'ly-languages-switcher' %}
-        
-        {% if settings.currency-switcher %}
-        
-                
-          <div class="currency-wrapper">
+		              
+		{% if settings.currency-switcher %}
+          <div class="currency-wrapper" style="padding: 5px; height: 100%; float:left; vertical-align:middle;">
             <p class="select-currency">{% comment %}ly_i18n_replace_for_[ 'layout.header.select_currency' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.select_currency' | t }}{% endcapture %}{% include 'ly-static-string' with '1294288' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</p>
             <div class="select-wrapper currency-switcher">
               <span class="selected-currency"></span>
@@ -34,13 +30,18 @@
             </div>
           </div>
         {% endif %}
+        
+        <div style="padding: 5px; height: 100%; float:left; vertical-align:middle;"> 
+          <p class="navigation-toggle"><span class="navigation-toggle-icon"><ly-as-1294286>Open menu</ly-as-1294286></span> <span class="navigation-toggle-text">{% comment %}ly_i18n_replace_for_[ 'layout.header.menu' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.menu' | t }}{% endcapture %}{% include 'ly-static-string' with '1294287' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</span></p>
+         	<div class="fb-like" style="padding: 5px; height: 100%; float:left; vertical-align: middle;" data-href="http://www.zoe-green.ca/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+        </div> 
       </div>
 
-      <div class="aligned-right">
+      <div class="aligned-right" >
       
         
         {% if shop.customer_accounts_enabled %}
-          <div class="customer-links">
+          <div class="customer-links" >
             {% if customer %}
               <a href="/account">{% comment %}ly_i18n_replace_for_[ 'layout.header.my_account' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.my_account' | t }}{% endcapture %}{% include 'ly-static-string' with '1294289' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</a>
 
@@ -58,7 +59,7 @@
           </div>
         {% endif %}
 
-        <div class="mini-cart-wrapper">
+        <div class="mini-cart-wrapper" >
           <a class="cart-count" href="/cart"><span class="cart-count-text">{% comment %}ly_i18n_replace_for_[ 'layout.header.cart' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.cart' | t }}{% endcapture %}{% include 'ly-static-string' with '1294294' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</span> (<span class="cart-count-number">{{ cart.item_count }}</span>)</a>
           {% if cart.item_count > 0 %}
             {% include 'mini-cart' %}
@@ -66,11 +67,13 @@
         </div>
         <a class="checkout-link" href="/checkout{% comment %}ly_checkout_begin{% endcomment %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% assign checkout_code = shop.metafields.language_codes[language] %}{% if checkout_code %}{% assign checkout_code = '?locale=' | append: checkout_code %}{{ checkout_code }}{% endif %}{% comment %}ly_checkout_end{% endcomment %}">{% comment %}ly_i18n_replace_for_[ 'layout.header.checkout' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.checkout' | t }}{% endcapture %}{% include 'ly-static-string' with '1294295' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</a>
 
+                <div>
         <form class="search-form" action="/search" method="get">
           <input class="search-input" name="q" type="text" placeholder="{% comment %}ly_i18n_replace_for_[ 'layout.header.search_placeholder' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.search_placeholder' | t }}{% endcapture %}{% include 'ly-static-string' with '1294296' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}" value="{{ search.terms }}" />
           <input type="submit" value="" />
         </form>
-   
+        </div>   
+
       </div>
 
     </div>
