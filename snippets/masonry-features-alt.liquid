@@ -97,12 +97,12 @@
           <figure class="no-image">
             <div class="masonry-feature-text">
               <p class="masonry-feature-title">
-                <a href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings">
+                <a href="{{ langify_shop_url }}/admin/themes/{{ theme.id }}/settings">
                   {% comment %}ly_i18n_replace_for_[ 'onboarding.masonry_features.feature_title' | t: number: i ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.masonry_features.feature_title' | t: number: i }}{% endcapture %}{% include 'ly-static-string' with '1294302' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = i  %}{% assign ly_template = ly_template | replace: '[[number]]', replacement %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}
                 </a>
               </p>
               <p class="masonry-feature-subtitle">
-                <a href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings">
+                <a href="{{ langify_shop_url }}/admin/themes/{{ theme.id }}/settings">
                   {% comment %}ly_i18n_replace_for_[ 'onboarding.general.settings_page_link' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'onboarding.general.settings_page_link' | t }}{% endcapture %}{% include 'ly-static-string' with '1294303' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}
                 </a>
               </p>

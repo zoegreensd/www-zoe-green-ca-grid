@@ -1,4 +1,4 @@
-
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}
 {% assign scn_min = scn-min-price.price_max %}
 {% for variant in scn-min-price.variants %}
 {% unless  variant.metafields.brodev_scn.hide == "true" %}

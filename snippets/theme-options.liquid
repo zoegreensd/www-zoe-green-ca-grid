@@ -6,11 +6,11 @@
   Theme.moneyFormat = {{ shop.money_format | strip_html | json }};
   Theme.moneyFormatCurrency = {{ shop.money_with_currency_format | strip_html | json }};
 
-  Theme.addToCartText = "{{ 'products.product.add_to_cart' | t | escape }}";
-  Theme.soldOutText = "{{ 'products.product.sold_out' | t | escape }}";
-  Theme.unavailableText = "{{'products.product.unavailable' | t | escape }}";
-  Theme.processingText = "{{ 'products.product.processing' | t | escape }}";
-  Theme.pleaseSelectText = "{{ 'general.general.please_select' | t | escape }}";
+  Theme.addToCartText = "{% comment %}ly_i18n_replace_for_[ 'products.product.add_to_cart' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'products.product.add_to_cart' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713946' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+  Theme.soldOutText = "{% comment %}ly_i18n_replace_for_[ 'products.product.sold_out' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'products.product.sold_out' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713947' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+  Theme.unavailableText = "{% comment %}ly_i18n_replace_for_['products.product.unavailable' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{'products.product.unavailable' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713948' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+  Theme.processingText = "{% comment %}ly_i18n_replace_for_[ 'products.product.processing' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'products.product.processing' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713949' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+  Theme.pleaseSelectText = "{% comment %}ly_i18n_replace_for_[ 'general.general.please_select' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'general.general.please_select' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713950' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
 
   {% if shop.customer_accounts_enabled and customer %}
     Theme.customerLoggedIn = true;
@@ -18,18 +18,18 @@
 
   {% if settings.shipping-calculator and cart.requires_shipping %}
     Theme.shippingCalculator = true;
-    Theme.shippingButton = "{{ 'cart.shipping_calculator.submit' | t | escape }}";
-    Theme.shippingDisabled = "{{ 'cart.shipping_calculator.disabled' | t | escape }}";
+    Theme.shippingButton = "{% comment %}ly_i18n_replace_for_[ 'cart.shipping_calculator.submit' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.shipping_calculator.submit' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713951' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+    Theme.shippingDisabled = "{% comment %}ly_i18n_replace_for_[ 'cart.shipping_calculator.disabled' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.shipping_calculator.disabled' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713952' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
 
     {% if shop.customer_accounts_enabled and customer and customer.addresses.size > 0 %}
       Theme.customerAddress = {{ customer.default_address | json }};
     {% endif %}
 
-    Theme.shippingCalcErrorMessage = "{{ 'cart.shipping_calculator.error' | t | escape }}";
-    Theme.shippingCalcMultiRates = "{{ 'cart.shipping_calculator.rates_html' | t | escape }}";
-    Theme.shippingCalcOneRate = "{{ 'cart.shipping_calculator.rate' | t | escape }}";
-    Theme.shippingCalcNoRates = "{{ 'cart.shipping_calculator.no_rates' | t | escape }}";
-    Theme.shippingCalcRateValues = "{{ 'cart.shipping_calculator.rate_values_html' | t | escape }}";
+    Theme.shippingCalcErrorMessage = "{% comment %}ly_i18n_replace_for_[ 'cart.shipping_calculator.error' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.shipping_calculator.error' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713953' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+    Theme.shippingCalcMultiRates = "{% comment %}ly_i18n_replace_for_[ 'cart.shipping_calculator.rates_html' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.shipping_calculator.rates_html' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713954' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+    Theme.shippingCalcOneRate = "{% comment %}ly_i18n_replace_for_[ 'cart.shipping_calculator.rate' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.shipping_calculator.rate' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713955' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+    Theme.shippingCalcNoRates = "{% comment %}ly_i18n_replace_for_[ 'cart.shipping_calculator.no_rates' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.shipping_calculator.no_rates' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713956' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+    Theme.shippingCalcRateValues = "{% comment %}ly_i18n_replace_for_[ 'cart.shipping_calculator.rate_values_html' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.shipping_calculator.rate_values_html' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713957' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
   {% endif %}
 
   {% if settings.currency-switcher %}
@@ -71,15 +71,15 @@
     Theme.twitterShowRetweets = {{ settings.twitter-widget-retweets | json }};
   {% endif %}
 
-  Theme.itemRemovedFromCart = "{{ 'cart.general.item_removed_message' | t | escape }}";
-  Theme.itemRemovedFromCartUndo = "{{ 'cart.general.undo' | t | escape }}";
+  Theme.itemRemovedFromCart = "{% comment %}ly_i18n_replace_for_[ 'cart.general.item_removed_message' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.item_removed_message' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713958' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+  Theme.itemRemovedFromCartUndo = "{% comment %}ly_i18n_replace_for_[ 'cart.general.undo' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.undo' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713959' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
 
   {% if settings.sticky-header %}
     Theme.stickyHeader = true;
   {% endif %}
 
-  Theme.cartText = "{{ 'layout.header.cart' | t | escape }}";
-  Theme.itemRemovedFromCart = "{{ 'cart.general.item_removed_message' | t | escape }}";
+  Theme.cartText = "{% comment %}ly_i18n_replace_for_[ 'layout.header.cart' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.header.cart' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713960' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
+  Theme.itemRemovedFromCart = "{% comment %}ly_i18n_replace_for_[ 'cart.general.item_removed_message' | t | escape ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.item_removed_message' | t | escape }}{% endcapture %}{% include 'ly-static-string' with '1713958' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape | escape }}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}";
 
   Theme.quickShop = {% if settings.product-hover == "quick-shop" %}true{% else %}false{% endif %};
   Theme.relatedProducts = {{ settings.related-products | json }};

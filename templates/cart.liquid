@@ -1,10 +1,11 @@
-{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}<h1 class="page-title">{% comment %}ly_i18n_replace_for_[ 'cart.general.header' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.header' | t }}{% endcapture %}{% include 'ly-static-string' with '1294372' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</h1>
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}
+<h1 class="page-title">{% comment %}ly_i18n_replace_for_[ 'cart.general.header' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.header' | t }}{% endcapture %}{% include 'ly-static-string' with '1294372' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</h1>
 
 {% include 'breadcrumbs' %}
 
 {% if cart.item_count > 0 %}
 
-  <form class="cart-form" action="/cart{% comment %}ly_checkout_begin{% endcomment %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% assign checkout_code = shop.metafields.language_codes[language] %}{% if checkout_code %}{% assign checkout_code = '?locale=' | append: checkout_code %}{{ checkout_code }}{% endif %}{% comment %}ly_checkout_end{% endcomment %}" method="post">
+  <form class="cart-form" action="/cart{% comment %}ly_checkout_begin{% endcomment %}{% if request.host %}{% assign host = request.host %}{% assign domains = shop.metafields.language_domains %}{% for domain in domains %}{% assign key = domain | first %}{% assign value = domain | last | split: ',' %}{% if value contains host %}{% assign language = key %}{% endif %}{% endfor %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% else %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% endif %}{% assign checkout_code = shop.metafields.language_codes[language] %}{% if checkout_code %}{% assign checkout_code = '?locale=' | append: checkout_code %}{{ checkout_code }}{% endif %}{% comment %}ly_checkout_end{% endcomment %}" method="post">
 
     <table class="cart-items">
       <thead>
@@ -63,13 +64,13 @@
           <p class="cart-message">{% comment %}ly_i18n_replace_for_[ 'cart.general.tax_and_shipping' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.tax_and_shipping' | t }}{% endcapture %}{% include 'ly-static-string' with '1294378' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</p> 
         {% endif %}
 
+        
+        <a href="/collections/all" title="<ly-as-1294371>Browse our Catalog</ly-as-1294371>"><button type="button"><ly-as-1331080>Continuer à magasiner</ly-as-1331080></button></a>
+
         {% if settings.currency-switcher or settings.ajax == false %}
           <input class="cart-update button secondary" type="submit" name="update" value="{% comment %}ly_i18n_replace_for_[ 'general.general.update' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'general.general.update' | t }}{% endcapture %}{% include 'ly-static-string' with '1294379' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}">
         {% endif %}
         
-        <a href="/collections/all" title="<ly-as-1294371>Browse our Catalog</ly-as-1294371>"><ly-as-1294370>Continuer à acheter</ly-as-1294370></a>
-        
-
         <input class="cart-checkout button" type="submit" name="checkout" value="{% comment %}ly_i18n_replace_for_[ 'cart.general.submit' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.submit' | t }}{% endcapture %}{% include 'ly-static-string' with '1294380' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}">
 
         {% if additional_checkout_buttons %}
@@ -88,11 +89,14 @@
 {% else %}
 
   {% capture continueLink %}
-    <a href="{{ shop.url }}/collections/all">{% comment %}ly_i18n_replace_for_[ 'cart.general.continue_link' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.continue_link' | t }}{% endcapture %}{% include 'ly-static-string' with '1294381' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</a>
+    <a href="{{ langify_shop_url }}/collections/all">{% comment %}ly_i18n_replace_for_[ 'cart.general.continue_link' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.continue_link' | t }}{% endcapture %}{% include 'ly-static-string' with '1294381' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</a>
   {% endcapture %}
   <p class="empty">{% comment %}ly_i18n_replace_for_[ 'cart.general.empty_html' | t: continue_link: continueLink ]_begin{% endcomment %}{% capture ly_template %}{{ 'cart.general.empty_html' | t: continue_link: continueLink }}{% endcapture %}{% include 'ly-static-string' with '1294383' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% assign replacement = continueLink  %}{% assign ly_template = ly_template | replace: '[[continue_link]]', replacement %}{% if escape_content %}{{ ly_template}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</p>
 
 {% endif %}
+
+
+
 
 
 

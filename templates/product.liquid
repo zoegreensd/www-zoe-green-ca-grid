@@ -14,7 +14,7 @@
 
 <div class="main-product-wrap product-wrap" itemscope itemtype="http://schema.org/Product" data-product-id="{{ product.id }}">
 
-  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="url" content="{{ langify_shop_url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product | img_url: 'grande' }}">
 
   <div class="product-images">
@@ -140,14 +140,14 @@
 
     </div>
     
-      <div id="shopify-product-reviews" data-id="{{product.id}}">{% comment %}ly_code_replace_for_[ product.metafields.spr.reviews ]_begin{% endcomment %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% assign ns = language | append: 'spr' %}{% assign key = 'reviews' %}{% if product.metafields[ns][key] %}{% assign ly_translation = product.metafields[ns][key] %}{% else %}{% assign ly_translation =  product.metafields.spr.reviews  %}{% endif %}{% assign 47084c029c2e5defb1bb6759b78af61b = ly_translation %}{{ 47084c029c2e5defb1bb6759b78af61b }}{% comment %}ly_code_replace_end{% endcomment %}</div>
+      <div id="shopify-product-reviews" data-id="{{product.id}}">{% comment %}ly_code_replace_for_[ product.metafields.spr.reviews ]_begin{% endcomment %}{% if request.host %}{% assign host = request.host %}{% assign domains = shop.metafields.language_domains %}{% for domain in domains %}{% assign key = domain | first %}{% assign value = domain | last | split: ',' %}{% if value contains host %}{% assign language = key %}{% endif %}{% endfor %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% else %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% endif %}{% assign ns = language | append: 'spr' %}{% assign key = 'reviews' %}{% if product.metafields[ns][key] %}{% assign ly_translation = product.metafields[ns][key] %}{% else %}{% assign ly_translation =  product.metafields.spr.reviews  %}{% endif %}{% assign 47084c029c2e5defb1bb6759b78af61b = ly_translation %}{{ 47084c029c2e5defb1bb6759b78af61b }}{% comment %}ly_code_replace_end{% endcomment %}</div>
     
   </div>
 
 </div>
 
 {% if settings.related-products %}
-  {% include 'related-products' %}
+  {% include 'linkcious' %}
 {% endif %}
 
 <script>
@@ -159,4 +159,7 @@
 
 
 
+
+
+{% include 'limespot-tracker-product' %}
 

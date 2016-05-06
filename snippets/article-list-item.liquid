@@ -50,7 +50,7 @@
         {% if settings.article-author %}
           <div class="post-author">
             {% if settings.article-author-avatar %}
-              <img class="post-author-avatar" src="http://www.gravatar.com/avatar/{{ article.user.email | remove: ' ' | strip_newlines | downcase | md5 }}" />
+              <img class="post-author-avatar" src="//www.gravatar.com/avatar/{{ article.user.email | remove: ' ' | strip_newlines | downcase | md5 }}" />
             {% endif %}
             <span class="post-author-name" data-title="{% comment %}ly_i18n_replace_for_[ 'blogs.article_item.written_by' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'blogs.article_item.written_by' | t }}{% endcapture %}{% include 'ly-static-string' with '1294243' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}">{{ article.author }}</span>
           </div>

@@ -1,4 +1,4 @@
-
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}
 {% comment %}
     This template was created by Social Comerce Ninja.
     This template will hide all hidden offer product variant in your theme
@@ -48,14 +48,14 @@
                     // Remove in selection tag
                     jQuery('select option').filter(function() {
                         var text = jQuery(this).text();
-                        return text.indexOf({{ variant.option1 | json }}) !== -1;
+                        return text.indexOf({% comment %}ly_code_replace_for_[ variant.option1 | json ]_begin{% endcomment %}{% include 'ly-option1' with variant %}{% assign f62b52bbb40d9eb4afb526f84b880ae6 = ly_translation %}{{ f62b52bbb40d9eb4afb526f84b880ae6 | json }}{% comment %}ly_code_replace_end{% endcomment %}) !== -1;
                     }).remove();
                     // Remove in ad-don html
                     jQuery('.dropdown *,ul li,label,div').filter(function() {
                         var html = jQuery(this).html(),
                         value = jQuery(this).data('value');
-                        return (html  && (html == {{ variant.option1 | json }}))
-                            || (value && (value.indexOf({{ variant.option1 | json }}) !== -1));
+                        return (html  && (html == {% comment %}ly_code_replace_for_[ variant.option1 | json ]_begin{% endcomment %}{% include 'ly-option1' with variant %}{% assign f62b52bbb40d9eb4afb526f84b880ae6 = ly_translation %}{{ f62b52bbb40d9eb4afb526f84b880ae6 | json }}{% comment %}ly_code_replace_end{% endcomment %}))
+                            || (value && (value.indexOf({% comment %}ly_code_replace_for_[ variant.option1 | json ]_begin{% endcomment %}{% include 'ly-option1' with variant %}{% assign f62b52bbb40d9eb4afb526f84b880ae6 = ly_translation %}{{ f62b52bbb40d9eb4afb526f84b880ae6 | json }}{% comment %}ly_code_replace_end{% endcomment %}) !== -1));
                     }).remove();
                 {% endif %}
                 {% endfor %}

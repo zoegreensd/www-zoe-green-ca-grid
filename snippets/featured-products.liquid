@@ -1,8 +1,8 @@
-{% comment %}ly_settings_replace_for_[8003bf95d088a45f8e78548b6c380f4c=settings.featured-products-section-title]_begin{% endcomment %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% assign namespace = language | append: "as" %}{% if shop.metafields[namespace]["id1294270"] %}{% assign 8003bf95d088a45f8e78548b6c380f4c = shop.metafields[namespace]["id1294270"] %}{% else %}{% assign 8003bf95d088a45f8e78548b6c380f4c = settings.featured-products-section-title %}{% endif %}{% comment %}ly_settings_replace_end{% endcomment %}{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% if collections[settings.featured-products-collection].products.size > 0 %}
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% comment %}ly_settings_replace_for_[f663733a1c0b315edc36bbc9b114abe8=settings.featured-products-section-title]_begin{% endcomment %}{% if request.host %}{% assign host = request.host %}{% assign domains = shop.metafields.language_domains %}{% for domain in domains %}{% assign key = domain | first %}{% assign value = domain | last | split: ',' %}{% if value contains host %}{% assign language = key %}{% endif %}{% endfor %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% else %}{% assign language = cart.attributes["language"] %}{% if language == nil %}{% assign language = shop.metafields["languages"]["default"] %}{% endif %}{% endif %}{% assign namespace = language | append: "as" %}{% if shop.metafields[namespace]["id1339660"] %}{% assign f663733a1c0b315edc36bbc9b114abe8 = shop.metafields[namespace]["id1339660"] %}{% else %}{% assign f663733a1c0b315edc36bbc9b114abe8 = settings.featured-products-section-title %}{% endif %}{% comment %}ly_settings_replace_end{% endcomment %}{% if collections[settings.featured-products-collection].products.size > 0 %}
   <section class="featured-products rows-of-{{ settings.featured-products-per-row }}">
 
       {% if settings.featured-products-section-title != blank %}
-        <h2 class="section-title">{{ 8003bf95d088a45f8e78548b6c380f4c }}</h2>
+        <h2 class="section-title">{{ f663733a1c0b315edc36bbc9b114abe8 }}</h2>
       {% endif %}
 
       <div class="featured-products-list">
@@ -24,7 +24,7 @@
         <article class="product-list-item" id="product-list-item-{{ item.id }}">
 
           <figure class="product-list-item-thumbnail">
-            <a class="no-image" href="{{ shop.url }}/admin/themes/{{ theme.id }}/settings"></a>
+            <a class="no-image" href="{{ langify_shop_url }}/admin/themes/{{ theme.id }}/settings"></a>
           </figure>
 
           <div class="product-list-item-details">

@@ -26,6 +26,18 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'clear_sansregular';
+    src: url('clearsans-regular-webfont.eot');
+    src: url('clearsans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('clearsans-regular-webfont.woff2') format('woff2'),
+         url('clearsans-regular-webfont.woff') format('woff'),
+         url('clearsans-regular-webfont.ttf') format('truetype'),
+         url('clearsans-regular-webfont.svg#clear_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .payment-icon {
   font-family: 'payment-icons';
   speak: none;
@@ -2617,6 +2629,7 @@ input.mailing-list-email {
   background: $header-tools-background-color;
 }
 
+
 .header-tools {
   @extend %clearfix;
   padding: 0 30px;
@@ -2674,7 +2687,9 @@ input.mailing-list-email {
 
   .aligned-left {
     float: left;
-    padding: 10px 0;
+    padding: 10px;
+    vertical-align: middle;
+	height: 100%;
   }
 
   .aligned-right {

@@ -2436,7 +2436,7 @@
 
     SelectView.prototype.initialize = function() {
       if (!(this.$el.parent(".select-wrapper").length || this.$el.hasClass("product-variants"))) {
-        this.$el.wrap("<div class='select-wrapper' />").parent().prepend("<span class='selected-text'></span>");
+        this.$el.wrap("<div class='select-wrapper' style='padding-right: 30px;' />").parent().prepend("<span class='selected-text'></span>");
       }
       return this.updateSelectText();
     };

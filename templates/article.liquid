@@ -32,7 +32,7 @@
                 <div class="rte">{% comment %}ly_code_replace_for_[ comment.content ]_begin{% endcomment %}{% include 'ly-content' with comment %}{% assign f48867d69794615b6bc9356cc65a4eaf = ly_translation %}{{ f48867d69794615b6bc9356cc65a4eaf }}{% comment %}ly_code_replace_end{% endcomment %}</div>
                 <div class="post-comment-details">
                   {% if settings.article-comment-author-avatar %}
-                    <img class="post-comment-author-avatar" src="http://www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" />
+                    <img class="post-comment-author-avatar" src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" />
                   {% endif %}
                   <span class="post-comment-author-name">{{ comment.author }}</span>
                 </div>
@@ -95,3 +95,5 @@
 {% if settings.blog-promo %}
   {% include 'blog-promo' %}
 {% endif %}
+
+
