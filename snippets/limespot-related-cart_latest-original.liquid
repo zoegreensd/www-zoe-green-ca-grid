@@ -1,4 +1,4 @@
-{% assign product_ids = "" %}
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% assign product_ids = "" %}
 {% for item in cart.items %}
 	{% assign product_ids = product_ids | append: ',' | append: item.product.id %}
 {% endfor %}
@@ -10,7 +10,7 @@
 				<li class="limespot-recommendation-box-item">
 					<a class="ls-link">
 						<img class="ls-image" />
-						<h4 class="ls-title">Loading...</h4>
+						<h4 class="ls-title"><ly-as-1851478>Loading...</ly-as-1851478></h4>
 						<span class="ls-original-price"></span>
 						<span class="ls-price"></span>
 						<div class="ls-sale-sign-wrap"></div>

@@ -1,4 +1,4 @@
-{% assign reference_id = '' %}
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}{% assign reference_id = '' %}
 {% if template contains 'product' %}
 	{% assign reference_id = product.id %}
 {% elsif template contains 'collection' and collection.metafields.LimeSpot['Personalized'] != 'true' %}
@@ -12,7 +12,7 @@
 				<li class="limespot-recommendation-box-item">
 					<a class="ls-link">
 						<img class="ls-image" />
-						<h4 class="ls-title">Loading...</h4>
+						<h4 class="ls-title"><ly-as-1851480>Loading...</ly-as-1851480></h4>
 						<span class="ls-original-price"></span>
 						<span class="ls-price"></span>
 						<div class="ls-sale-sign-wrap"></div>

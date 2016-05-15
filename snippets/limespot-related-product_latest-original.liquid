@@ -1,4 +1,4 @@
-<div class="limespot-recommendation-box ls-recommendation-box" data-box-type="Related" data-host-page="{{ template }}" data-reference-id="{{ product.id }}"{% if dontPrioritize == true %}data-dont-prioritize="true" {% endif %} style="display: none;">
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}<div class="limespot-recommendation-box ls-recommendation-box" data-box-type="Related" data-host-page="{{ template }}" data-reference-id="{{ product.id }}"{% if dontPrioritize == true %}data-dont-prioritize="true" {% endif %} style="display: none;">
 	<h3 class="ls-box-title"></h3>
 	<div class="limespot-recommendation-box-carousel-container">
 		<div class="ls-ul-container limespot-recommendation-box-carousel v-align">
@@ -6,7 +6,7 @@
 				<li class="limespot-recommendation-box-item">
 					<a class="ls-link">
 						<img class="ls-image" />
-						<h4 class="ls-title">Loading...</h4>
+						<h4 class="ls-title"><ly-as-1851479>Loading...</ly-as-1851479></h4>
 						<span class="ls-original-price"></span>
 						<span class="ls-price"></span>
 						<div class="ls-sale-sign-wrap"></div>

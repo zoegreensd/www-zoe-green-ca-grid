@@ -30,7 +30,7 @@
       {% for link in linklists.main-menu.links %}
         {% include 'has-dropdown' %}
         <li class="{% if hasDropdown %}has-dropdown{% elsif hasMegaNav %}has-mega-nav{% endif %} {% include 'for-looper' %}" {% if hasMegaNav %}data-mega-nav="true"{% endif %}>
-          <a data-linklist-trigger="{{ link.title | downcase | handle }}" href="{{ link.url }}">{% comment %}ly_code_replace_for_[ link.title ]_begin{% endcomment %}{% include 'ly-title' with link %}{% assign b4746a83cc900946bc793cd99c77ce06 = ly_translation %}{{ b4746a83cc900946bc793cd99c77ce06 }}{% comment %}ly_code_replace_end{% endcomment %} {% if hasDropdown or hasMegaNav %}<span class="enter-linklist"></span>{% endif %}</a>
+          <a data-linklist-trigger="{{ link.title | downcase | handle }}" href="{{ link.url }}"><span>{% comment %}ly_code_replace_for_[ link.title ]_begin{% endcomment %}{% include 'ly-title' with link %}{% assign b4746a83cc900946bc793cd99c77ce06 = ly_translation %}{{ b4746a83cc900946bc793cd99c77ce06 }}{% comment %}ly_code_replace_end{% endcomment %}</span> {% if hasDropdown or hasMegaNav %}<span class="enter-linklist"></span>{% endif %}</a>
 
           {% if hasDropdown %}
 
@@ -61,14 +61,14 @@
 
                 {% if linklists[linklist].links.size > 0 %}
                   <li class="has-dropdown">
-                    <a data-linklist-trigger="{{ linklists[linklist].title | downcase | handle }}" href="{{ linklists[linklist].url }}">{% comment %}ly_code_replace_for_[ linklists[linklist].title ]_begin{% endcomment %}{% include 'ly-title' with linklists[linklist] %}{% assign fdc451a93ddfb219c57c8498f240987b = ly_translation %}{{ fdc451a93ddfb219c57c8498f240987b }}{% comment %}ly_code_replace_end{% endcomment %} {% if hasMegaNav %}<span class="enter-linklist"></span>{% endif %}</a>
+                    <a data-linklist-trigger="{{ linklists[linklist].title | downcase | handle }}" href="{{ linklists[linklist].url }}"><span>{% comment %}ly_code_replace_for_[ linklists[linklist].title ]_begin{% endcomment %}{% include 'ly-title' with linklists[linklist] %}{% assign fdc451a93ddfb219c57c8498f240987b = ly_translation %}{{ fdc451a93ddfb219c57c8498f240987b }}{% comment %}ly_code_replace_end{% endcomment %}</span> {% if hasMegaNav %}<span class="enter-linklist"></span>{% endif %}</a>
                     <ul data-linklist="{{ linklists[linklist].title | downcase | handle }}">
                       <li>
                         <span class="back"><span class="icon"></span> {% comment %}ly_i18n_replace_for_[ 'layout.mobile_navigation.back' | t ]_begin{% endcomment %}{% capture ly_template %}{{ 'layout.mobile_navigation.back' | t }}{% endcapture %}{% include 'ly-static-string' with '1294311' %}{% if ly_translation %}{% assign escape_content = true %}{% assign ly_template = ly_translation %}{% else %}{% assign escape_content = false %}{% endif %}{% if escape_content %}{{ ly_template | escape}}{% else %}{{ ly_template }}{% endif %}{% comment %}ly_i18n_replace_end{% endcomment %}</span>
                       </li>
                       {% for link in linklists[linklist].links %}
                         <li>
-                          <a href="{{ link.url }}">{% comment %}ly_code_replace_for_[ link.title ]_begin{% endcomment %}{% include 'ly-title' with link %}{% assign b4746a83cc900946bc793cd99c77ce06 = ly_translation %}{{ b4746a83cc900946bc793cd99c77ce06 }}{% comment %}ly_code_replace_end{% endcomment %}</a>
+                          <a href="{{ link.url }}"><span>{% comment %}ly_code_replace_for_[ link.title ]_begin{% endcomment %}{% include 'ly-title' with link %}{% assign b4746a83cc900946bc793cd99c77ce06 = ly_translation %}{{ b4746a83cc900946bc793cd99c77ce06 }}{% comment %}ly_code_replace_end{% endcomment %}</span></a>
                         </li>
                       {% endfor %}
                     </ul>
